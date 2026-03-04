@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.offbit.offbit">
+
+    <!-- Basic permissions -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    
+    <!-- Audio permissions for calling -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    
+    <!-- Network permissions -->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    
+    <!-- Hardware features -->
+    <uses-feature android:name="android.hardware.microphone" android:required="true" />
+    <uses-feature android:name="android.hardware.wifi" android:required="false" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.OffBit"
+        android:usesCleartextTraffic="true"
+        android:supportsRtl="true"
+        tools:targetApi="31">
+        
+        <!-- Main launcher activity -->
+        <activity
+            android:name=".WelcomeActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.OffBit"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android,name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <!-- Main dashboard activity -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.OffBit"
+            android:screenOrientation="portrait" />
+        
+        <!-- Call activity -->
+        <activity
+            android:name=".CallActivity"
+            android:exported="false"
+            android:theme="@style/Theme.OffBit"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop" />
+        
+        <!-- Call history activity -->
+        <activity
+            android:name=".CallHistoryActivity"
+            android:exported="false"
+            android:theme="@style/Theme.OffBit"
+            android:screenOrientation="portrait" />
+        
+        <!-- Contacts activity -->
+        <activity
+            android:name=".ContactsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.OffBit"
+            android:screenOrientation="portrait" />
+        
+        <!-- Favorites activity -->
+        <activity
+            android:name=".FavoritesActivity"
+            android:exported="false"
+            android:theme="@style/Theme.OffBit"
+            android:screenOrientation="portrait" />
+        
+        <!-- Web browser activity -->
+        <activity
+            android:name=".BrowserActivity"
+            android:exported="false"
+            android:theme="@style/Theme.OffBit"
+            android:screenOrientation="portrait" />
+            
+        <!-- Peer discovery service -->
+        <service
+            android:name=".service.PeerDiscoveryService"
+            android:enabled="true"
+            android:exported="false" />
+            
+        <!-- Network change receiver -->
+        <receiver
+            android:name=".receiver.NetworkChangeReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+            
+    </application>
+
+</manifest>
