@@ -1,7 +1,9 @@
 # OffBit
 
 An open-source P2P voice calling application for Android with decentralized architecture.
-<img width="192" height="192" alt="icon" src="https://github.com/user-attachments/assets/d06f80e7-da09-48e9-b259-8bf9f3f627f0" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/d06f80e7-da09-48e9-b259-8bf9f3f627f0" width="192" height="192">
+</p>
 
 ## Features
 
